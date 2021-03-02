@@ -33,13 +33,13 @@ const StyledHeader = styled.h1`
 	z-index: 101;
 	display: inline;
 `;
-const Hero = ({ heroRef }) => {
+const Contact = ({ contactRef }) => {
 	return (
-		<StyledHeroContainer ref={heroRef}>
+		<StyledHeroContainer ref={contactRef}>
 			<StyledImage src={'/hero3.jpg'} layout='fill'></StyledImage>
 			<StyledHeader>Welcome to my development portfolio.</StyledHeader>
 		</StyledHeroContainer>
 	);
 };
 
-export default Hero;
+export default Contact;

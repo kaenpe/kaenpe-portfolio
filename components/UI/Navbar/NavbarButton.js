@@ -15,12 +15,8 @@ const StyledButton = styled.button`
 		font-size: 21px;
 	}
 `;
-const NavbarButton = ({ button, scrollToHero, homeRef, aboutRef }) => {
-	const checkButton = () => {
-		if (button === 'HOME') scrollToHero(homeRef);
-		else if (button === 'ABOUT') scrollToHero(aboutRef);
-	};
-	return <StyledButton onClick={checkButton}>{button}</StyledButton>;
+const NavbarButton = ({ button, scrollToHero, id }) => {
+	return <StyledButton onClick={() => scrollToHero(id)}>{button}</StyledButton>;
 };
 
 export default NavbarButton;

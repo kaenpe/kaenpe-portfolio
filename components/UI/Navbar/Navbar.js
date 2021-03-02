@@ -21,7 +21,7 @@ const StyledButtonList = styled.ul`
 	margin: 0;
 `;
 
-const Navbar = ({ scrollToHero, homeRef, aboutRef }) => {
+const Navbar = ({ scrollToHero, elRef }) => {
 	const buttons = ['HOME', 'ABOUT', 'PRODUCTS', 'CONTACT'];
 	return (
 		<StyledNavContainer>
@@ -29,9 +29,8 @@ const Navbar = ({ scrollToHero, homeRef, aboutRef }) => {
 				{buttons.map((button, id) => (
 					<li key={id}>
 						<NavbarButton
+							id={id}
 							scrollToHero={scrollToHero}
-							homeRef={homeRef}
-							aboutRef={aboutRef}
 							button={button}
 						></NavbarButton>
 					</li>
