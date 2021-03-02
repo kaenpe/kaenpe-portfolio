@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import NavbarButton from './NavbarButton';
 
 const StyledNavContainer = styled.nav`
+	position: sticky;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	height: 5vh;
 	background-color: ${({ theme }) => theme.colors.background};
+	z-index: 102;
+	top: 0;
 `;
 
 const StyledButtonList = styled.ul`
@@ -18,25 +21,19 @@ const StyledButtonList = styled.ul`
 	margin: 0;
 `;
 
-const StyledNavHeader = styled.h1`
-	font-family: Merriweather;
-	color: ${({ theme }) => theme.colors.primaryText};
-	margin: 0;
-	padding: 0 20px 0 20px;
-	&:hover {
-		color: ${({ theme }) => theme.colors.secondaryText};
-		cursor: pointer;
-	}
-`;
-const Navbar = () => {
+const Navbar = ({ scrollToHero, homeRef, aboutRef }) => {
 	const buttons = ['HOME', 'ABOUT', 'PRODUCTS', 'CONTACT'];
 	return (
 		<StyledNavContainer>
-			<StyledNavHeader>My Portfolio</StyledNavHeader>
 			<StyledButtonList>
-				{buttons.map((button) => (
-					<li>
-						<NavbarButton button={button}></NavbarButton>
+				{buttons.map((button, id) => (
+					<li key={id}>
+						<NavbarButton
+							scrollToHero={scrollToHero}
+							homeRef={homeRef}
+							aboutRef={aboutRef}
+							button={button}
+						></NavbarButton>
 					</li>
 				))}
 			</StyledButtonList>
