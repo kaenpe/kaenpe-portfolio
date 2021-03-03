@@ -1,45 +1,44 @@
 import React from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 
-const StyledHeroContainer = styled.main`
+const StyledAboutContainer = styled.section`
 	width: 100%;
-	height: 95vh;
+	height: 50vh;
 	position: relative;
 	display: flex;
-	justify-content: center;
-	div {
-		z-index: 1;
-	}
-	&:before {
-		mix-blend-mode: darken;
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.75);
-		z-index: 100;
-	}
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #00000050;
 `;
-
-const StyledImage = styled(Image)``;
 
 const StyledHeader = styled.h1`
 	display: inline;
 	color: ${({ theme }) => theme.colors.primaryText};
-	margin-top: 100px;
 	position: relative;
-	isolation: isolate;
-	z-index: 101;
-	display: inline;
+	width: 40%;
+	text-align: center;
 `;
-const Products = ({ productsRef }) => {
+
+const StyledDivider = styled.div`
+	height: 90%;
+	width: 1px;
+	background-color: #eeeeee50;
+	position: relative;
+	z-index: 100;
+`;
+
+const Product = ({ productsRef }) => {
 	return (
-		<StyledHeroContainer ref={productsRef}>
-			<StyledImage src={'/hero3.jpg'} layout='fill'></StyledImage>
-			<StyledHeader>Welcome to my development portfolio.</StyledHeader>
-		</StyledHeroContainer>
+		<StyledAboutContainer ref={productsRef}>
+			<StyledHeader>Some words about me</StyledHeader>
+			<StyledDivider></StyledDivider>
+			<StyledHeader>
+				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
+				Poland. My goal is to eventually become a self-reliant freelancer. Here
+				you can find my
+			</StyledHeader>
+		</StyledAboutContainer>
 	);
 };
 
-export default Products;
+export default Product;

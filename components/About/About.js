@@ -1,44 +1,55 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
+import useRefInView from '../../hooks/useRefInView';
 
-const StyledHeroContainer = styled.main`
+const StyledAboutContainer = styled.section`
 	width: 100%;
-	height: 95vh;
+	height: 50vh;
 	position: relative;
 	display: flex;
-	justify-content: center;
-	div {
-		z-index: 1;
-	}
-	&:before {
-		mix-blend-mode: darken;
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.75);
-		z-index: 100;
-	}
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #00000075;
 `;
-
-const StyledImage = styled(Image)``;
 
 const StyledHeader = styled.h1`
 	display: inline;
 	color: ${({ theme }) => theme.colors.primaryText};
-	margin-top: 100px;
 	position: relative;
-	isolation: isolate;
-	z-index: 101;
-	display: inline;
+	width: 40%;
+	text-align: center;
+	opacity: ${({ visible }) => (visible ? 1 : 0)};
+	transform: opacity;
+	transition-duration: 2s;
 `;
+
+const StyledDivider = styled.div`
+	height: 90%;
+	width: 1px;
+	background-color: #eeeeee30;
+	position: relative;
+	z-index: 100;
+`;
+
 const About = ({ aboutRef }) => {
+	const [visible, setVisible] = useState(false);
+	const { inView, setRefs } = useRefInView(aboutRef);
+
+	useEffect(() => {
+		inView ? setVisible(true) : setVisible(false);
+	}, [inView]);
 	return (
-		<StyledHeroContainer ref={aboutRef}>
-			<StyledImage src={'/hero3.jpg'} layout='fill'></StyledImage>
-			<StyledHeader>Welcome to my development portfolio.</StyledHeader>
-		</StyledHeroContainer>
+		<StyledAboutContainer ref={setRefs}>
+			<StyledHeader visible={visible}>Something about me.</StyledHeader>
+			<StyledDivider></StyledDivider>
+			<StyledHeader visible={visible}>
+				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
+				Poland. My goal is to eventually become a self-reliant freelancer. Here
+				you can find all of my work.
+				{inView ? 'yes' : 'no'}
+			</StyledHeader>
+		</StyledAboutContainer>
 	);
 };
 

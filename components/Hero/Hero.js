@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
+import useRefInView from '../../hooks/useRefInView';
 
-const StyledHeroContainer = styled.main`
+const StyledHeroContainer = styled.section`
 	width: 100%;
-	height: 95vh;
+	height: 100vh;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -12,7 +13,7 @@ const StyledHeroContainer = styled.main`
 		z-index: 1;
 	}
 	&:before {
-		mix-blend-mode: darken;
+		mix-blend-mode: overlay;
 		position: absolute;
 		content: '';
 		width: 100%;
@@ -22,22 +23,37 @@ const StyledHeroContainer = styled.main`
 	}
 `;
 
-const StyledImage = styled(Image)``;
+const StyledImage = styled(Image)`
+	opacity: ${({ visible }) => (visible === true ? '0.8' : '0')};
+	transform: opacity;
+	transition-duration: 1s;
+`;
 
 const StyledHeader = styled.h1`
+	margin-top: 50px;
 	display: inline;
 	color: ${({ theme }) => theme.colors.primaryText};
-	margin-top: 100px;
 	position: relative;
-	isolation: isolate;
 	z-index: 101;
-	display: inline;
 `;
 const Hero = ({ heroRef }) => {
+	const [visible, setVisible] = useState('hidden');
+	const { inView, setRefs } = useRefInView(heroRef);
+
+	useEffect(() => {
+		inView ? setVisible(true) : setVisible(false);
+	}, [inView]);
+	useEffect(() => {
+		setVisible('visible');
+	}, []);
 	return (
-		<StyledHeroContainer ref={heroRef}>
-			<StyledImage src={'/hero3.jpg'} layout='fill'></StyledImage>
-			<StyledHeader>Welcome to my development portfolio.</StyledHeader>
+		<StyledHeroContainer ref={setRefs}>
+			<StyledImage
+				visible={visible}
+				src={'/hero1.jpg'}
+				layout='fill'
+			></StyledImage>
+			<StyledHeader>Welcome to my web development portfolio.</StyledHeader>
 		</StyledHeroContainer>
 	);
 };

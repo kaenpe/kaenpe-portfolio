@@ -15,8 +15,8 @@ const StyledButton = styled.button`
 		font-size: 21px;
 	}
 `;
-const NavbarButton = ({ button, scrollToHero, id }) => {
-	return <StyledButton onClick={() => scrollToHero(id)}>{button}</StyledButton>;
+const NavbarButton = ({ button, scrollToRef, id }) => {
+	return <StyledButton onClick={() => scrollToRef(id)}>{button}</StyledButton>;
 };
 
 export default NavbarButton;
