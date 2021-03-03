@@ -19,7 +19,7 @@ const StyledHeader = styled.h1`
 	position: relative;
 	width: 40%;
 	text-align: center;
-	opacity: ${({ visible }) => (visible ? 1 : 0)};
+	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
 	transform: opacity;
 	transition-duration: 2s;
 `;
@@ -33,11 +33,11 @@ const StyledDivider = styled.div`
 `;
 
 const About = ({ aboutRef }) => {
-	const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(aboutRef);
 
 	useEffect(() => {
-		inView ? setVisible(true) : setVisible(false);
+		inView ? setVisible('show') : setVisible('hide');
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>

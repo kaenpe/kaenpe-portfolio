@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import useRefInView from '../../hooks/useRefInView';
 
 const StyledAboutContainer = styled.section`
 	width: 100%;
@@ -12,11 +13,13 @@ const StyledAboutContainer = styled.section`
 `;
 
 const StyledHeader = styled.h1`
-	display: inline;
 	color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
 	width: 40%;
 	text-align: center;
+	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
+	transform: opacity;
+	transition-duration: 2s;
 `;
 
 const StyledDivider = styled.div`
@@ -28,14 +31,21 @@ const StyledDivider = styled.div`
 `;
 
 const Contact = ({ contactRef }) => {
+	const [visible, setVisible] = useState('hide');
+	const { inView, setRefs } = useRefInView(contactRef);
+
+	useEffect(() => {
+		inView ? setVisible('show') : setVisible('hide');
+	}, [inView]);
 	return (
-		<StyledAboutContainer ref={contactRef}>
-			<StyledHeader>Some words about me</StyledHeader>
+		<StyledAboutContainer ref={setRefs}>
+			<StyledHeader visible={visible}>Something about me.</StyledHeader>
 			<StyledDivider></StyledDivider>
-			<StyledHeader>
+			<StyledHeader visible={visible}>
 				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
 				Poland. My goal is to eventually become a self-reliant freelancer. Here
-				you can find my
+				you can find all of my work.
+				{inView ? 'yes' : 'no'}
 			</StyledHeader>
 		</StyledAboutContainer>
 	);

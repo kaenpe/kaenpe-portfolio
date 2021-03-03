@@ -24,7 +24,7 @@ const StyledHeroContainer = styled.section`
 `;
 
 const StyledImage = styled(Image)`
-	opacity: ${({ visible }) => (visible === true ? '0.8' : '0')};
+	opacity: ${({ visible }) => (visible === 'show' ? '0.8' : '0')};
 	transform: opacity;
 	transition-duration: 1s;
 `;
@@ -37,11 +37,11 @@ const StyledHeader = styled.h1`
 	z-index: 101;
 `;
 const Hero = ({ heroRef }) => {
-	const [visible, setVisible] = useState('hidden');
+	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(heroRef);
 
 	useEffect(() => {
-		inView ? setVisible(true) : setVisible(false);
+		inView ? setVisible('show') : setVisible('hide');
 	}, [inView]);
 	useEffect(() => {
 		setVisible('visible');
