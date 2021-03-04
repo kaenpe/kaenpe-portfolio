@@ -7,7 +7,7 @@ import Navbar from '../components/UI/Navbar/Navbar';
 
 export default function Home() {
 	const elRef = [useRef(null), useRef(null), useRef(null), useRef(null)];
-	const [active, setActive] = useState(0);
+	const [active, setActive] = useState('HOME');
 	const scrollToRef = (num) => {
 		elRef[num].current.scrollIntoView({ behavior: 'smooth' });
 		console.log('successfully scrolled');
