@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
 
@@ -8,26 +7,35 @@ const StyledAboutContainer = styled.section`
 	height: 50vh;
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
 	background-color: #00000075;
 `;
 
-const StyledHeader = styled.h1`
+const StyledUpperText = styled.h1`
 	display: inline;
-	color: ${({ theme }) => theme.colors.primaryText};
+	color: ${({ theme }) => theme.colors.secondaryText};
 	position: relative;
 	width: 40%;
 	text-align: center;
 	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
 	transform: opacity;
-	transition-duration: 2s;
+	transform: ${({ visible }) =>
+		visible === 'show' ? 'translateX(0)' : 'translateX(-40vw)'};
+	transition-duration: 1s;
+`;
+
+const StyledBottomText = styled(StyledUpperText)`
+	transform: ${({ visible }) =>
+		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
+	color: ${({ theme }) => theme.colors.primaryText};
 `;
 
 const StyledDivider = styled.div`
-	height: 90%;
-	width: 1px;
-	background-color: #eeeeee30;
+	height: 1px;
+	width: 40vw;
+	background-color: #eeeeee10;
 	position: relative;
 	z-index: 100;
 `;
@@ -42,13 +50,13 @@ const About = ({ aboutRef, setActive }) => {
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>
-			<StyledHeader visible={visible}>Something about me.</StyledHeader>
+			<StyledUpperText visible={visible}>Something about me.</StyledUpperText>
 			<StyledDivider></StyledDivider>
-			<StyledHeader visible={visible}>
+			<StyledBottomText visible={visible}>
 				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
 				Poland. My goal is to eventually become a self-reliant freelancer. Here
 				you can find all of my work.
-			</StyledHeader>
+			</StyledBottomText>
 		</StyledAboutContainer>
 	);
 };

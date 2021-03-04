@@ -45,7 +45,7 @@ const Navbar = ({ scrollToRef, active }) => {
 			prevScrollpos = currentScrollPos;
 		};
 	}, []);
-	const buttons = ['HOME', 'ABOUT', 'PRODUCTS', 'CONTACT'];
+	const buttons = ['HOME', 'ABOUT', 'SHOWCASE', 'CONTACT'];
 	return (
 		<StyledNavContainer toggle={toggleNavbar}>
 			<StyledButtonList>

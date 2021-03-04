@@ -30,7 +30,7 @@ const theme = {
 	colors: {
 		background: '#0b0b0c',
 		primaryText: '#BDBDBD',
-		secondaryText: '#991b41',
+		secondaryText: 'rgba(153, 27, 65, 0.548)',
 	},
 };
 
