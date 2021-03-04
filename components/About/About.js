@@ -11,6 +11,7 @@ const StyledAboutContainer = styled.section`
 	justify-content: space-evenly;
 	align-items: center;
 	background-color: #00000075;
+	overflow: hidden;
 `;
 
 const StyledUpperText = styled.h1`
@@ -19,6 +20,7 @@ const StyledUpperText = styled.h1`
 	position: relative;
 	width: 40%;
 	text-align: center;
+
 	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
 	transform: opacity;
 	transform: ${({ visible }) =>

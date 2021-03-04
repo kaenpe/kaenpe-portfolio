@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import NavbarButton from './NavbarButton';
 
 const StyledNavContainer = styled.nav`
-	position: sticky;
+	position: fixed;
 	width: 100%;
 	display: flex;
 	justify-content: center;

@@ -22,8 +22,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-
-
 `;
 
 const theme = {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
 
@@ -8,33 +7,44 @@ const StyledHeroContainer = styled.section`
 	height: 100vh;
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	div {
-		z-index: 1;
-	}
-	&:before {
-		mix-blend-mode: overlay;
-		position: absolute;
+	align-items: center;
+	&:after {
 		content: '';
+		position: absolute;
 		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.75);
-		z-index: 100;
+		height: 50vh;
+		bottom: 0;
+		background-color: #151617;
 	}
-`;
-
-const StyledImage = styled(Image)`
-	opacity: ${({ visible }) => (visible === 'show' ? '0.8' : '0')};
-	transform: opacity;
-	transition-duration: 1s;
 `;
 
 const StyledHeader = styled.h1`
-	margin-top: 50px;
 	display: inline;
-	color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
 	z-index: 101;
+	font-weight: bold;
+	font-size: 12rem;
+	word-spacing: 0.2em;
+	margin: 0;
+`;
+const StyledMiddle = styled.h3`
+	display: inline;
+	position: relative;
+	z-index: 101;
+	float: right;
+	font-weight: bold;
+	color: #0b0b0c;
+	font-size: 6rem;
+	margin: 0;
+	font-size: 72px;
+	span {
+		height: 50%;
+		position: absolute;
+		color: #313233;
+		overflow: hidden;
+	}
 `;
 const Hero = ({ heroRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
@@ -47,12 +57,20 @@ const Hero = ({ heroRef, setActive }) => {
 
 	return (
 		<StyledHeroContainer ref={setRefs}>
-			<StyledImage
-				visible={visible}
-				src={'/hero1.jpg'}
-				layout='fill'
-			></StyledImage>
-			<StyledHeader>Welcome to my web development portfolio.</StyledHeader>
+			<StyledHeader>
+				<span className='first' style={{ color: '#313233' }}>
+					KAMIL{' '}
+				</span>
+			</StyledHeader>
+			<StyledMiddle>
+				<span>WEB DEVELOPMENT DESIGN FREELANCE</span>
+				WEB DEVELOPMENT DESIGN FREELANCE
+			</StyledMiddle>
+			<StyledHeader>
+				<span className='second' style={{ color: '#0b0b0c' }}>
+					KNAP{' '}
+				</span>
+			</StyledHeader>
 		</StyledHeroContainer>
 	);
 };
