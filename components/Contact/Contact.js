@@ -4,7 +4,7 @@ import useRefInView from '../../hooks/useRefInView';
 
 const StyledAboutContainer = styled.section`
 	width: 100%;
-	height: 50vh;
+	height: 70vh;
 	position: relative;
 	display: flex;
 	justify-content: space-evenly;
@@ -30,12 +30,13 @@ const StyledDivider = styled.div`
 	z-index: 100;
 `;
 
-const Contact = ({ contactRef }) => {
+const Contact = ({ contactRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(contactRef);
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
+		inView ? setActive('CONTACT') : null;
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>

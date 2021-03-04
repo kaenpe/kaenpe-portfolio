@@ -32,12 +32,13 @@ const StyledDivider = styled.div`
 	z-index: 100;
 `;
 
-const About = ({ aboutRef }) => {
+const About = ({ aboutRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(aboutRef);
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
+		inView ? setActive('ABOUT') : null;
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>
@@ -47,7 +48,6 @@ const About = ({ aboutRef }) => {
 				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
 				Poland. My goal is to eventually become a self-reliant freelancer. Here
 				you can find all of my work.
-				{inView ? 'yes' : 'no'}
 			</StyledHeader>
 		</StyledAboutContainer>
 	);

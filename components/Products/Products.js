@@ -30,12 +30,13 @@ const StyledDivider = styled.div`
 	z-index: 100;
 `;
 
-const Product = ({ productsRef }) => {
+const Product = ({ productsRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(productsRef);
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
+		inView ? setActive('PRODUCTS') : null;
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>

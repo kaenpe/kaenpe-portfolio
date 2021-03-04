@@ -36,16 +36,15 @@ const StyledHeader = styled.h1`
 	position: relative;
 	z-index: 101;
 `;
-const Hero = ({ heroRef }) => {
+const Hero = ({ heroRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(heroRef);
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
+		inView ? setActive('HOME') : null;
 	}, [inView]);
-	useEffect(() => {
-		setVisible('visible');
-	}, []);
+
 	return (
 		<StyledHeroContainer ref={setRefs}>
 			<StyledImage

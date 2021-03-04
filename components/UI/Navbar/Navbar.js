@@ -18,13 +18,19 @@ const StyledNavContainer = styled.nav`
 `;
 
 const StyledButtonList = styled.ul`
-	display: flex;
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px;
+	justify-content: center;
+	width: 100%;
 	align-items: center;
+	grid-gap: 30px;
 	list-style-type: none;
 	margin: 0;
+	padding: 0;
+	height: 100%;
 `;
 
-const Navbar = ({ scrollToRef }) => {
+const Navbar = ({ scrollToRef, active }) => {
 	const [toggleNavbar, setToggleNavbar] = useState(true);
 
 	useEffect(() => {
@@ -44,13 +50,13 @@ const Navbar = ({ scrollToRef }) => {
 		<StyledNavContainer toggle={toggleNavbar}>
 			<StyledButtonList>
 				{buttons.map((button, id) => (
-					<li key={id}>
-						<NavbarButton
-							id={id}
-							scrollToRef={scrollToRef}
-							button={button}
-						></NavbarButton>
-					</li>
+					<NavbarButton
+						key={id}
+						active={active}
+						id={id}
+						scrollToRef={scrollToRef}
+						button={button}
+					></NavbarButton>
 				))}
 			</StyledButtonList>
 		</StyledNavContainer>
