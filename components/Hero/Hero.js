@@ -28,7 +28,8 @@ const StyledTextContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 `;
-const StyledHeader = styled.h1`
+
+const StyledFirstName = styled.h1`
 	display: inline;
 	position: relative;
 	z-index: 101;
@@ -36,7 +37,40 @@ const StyledHeader = styled.h1`
 	font-size: 12rem;
 	word-spacing: 0.2em;
 	margin: 0;
+	padding: 10px;
 	color: ${({ color }) => color};
+	display: flex;
+	justify-content: center;
+`;
+const StyledSurname = styled(StyledFirstName)`
+	&:after {
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		border-left: 40px solid transparent;
+		border-right: 40px solid transparent;
+		z-index: 101;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		border-top: 40px solid #0b0b0c;
+		bottom: 0;
+	}
+	&:before {
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+		z-index: 102;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		border-top: 25px solid #313233;
+		bottom: 0;
+	}
 `;
 const StyledMiddleContainer = styled.div`
 	display: flex;
@@ -61,28 +95,6 @@ const StyledMiddle = styled.h3`
 	margin: 0;
 `;
 
-const StyledArrow = styled.div`
-	width: 0;
-	height: 0;
-	position: absolute;
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
-	z-index: 101;
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	border-top: 40px solid #0b0b0c;
-	bottom: 0;
-	&:after {
-		content: '';
-		width: 0;
-		height: 0;
-		border-left: 25px solid transparent;
-		border-right: 25px solid transparent;
-		z-index: 101;
-		border-top: 25px solid #313233;
-	}
-`;
 const Hero = ({ heroRef, setActive }) => {
 	const { inView, setRefs } = useRefInView(heroRef);
 
@@ -93,13 +105,14 @@ const Hero = ({ heroRef, setActive }) => {
 	return (
 		<StyledHeroContainer ref={setRefs}>
 			<StyledTextContainer>
-				<StyledHeader color='#313233'>KAMIL </StyledHeader>
+				<StyledFirstName color='#313233'>KAMIL </StyledFirstName>
 				<StyledMiddleContainer>
 					<StyledMiddle color={'#313233'}>WEB </StyledMiddle>
 					<StyledMiddle color={'#0b0b0c'}>DEVELOPMENT</StyledMiddle>
 				</StyledMiddleContainer>
-				<StyledHeader color='#0b0b0c'>KNAP </StyledHeader>
-				<StyledArrow></StyledArrow>
+				<StyledSurname withArrow={true} color='#0b0b0c'>
+					KNAP{' '}
+				</StyledSurname>
 			</StyledTextContainer>
 		</StyledHeroContainer>
 	);
