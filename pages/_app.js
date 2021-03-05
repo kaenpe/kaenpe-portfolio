@@ -27,8 +27,10 @@ a:hover {
 const theme = {
 	colors: {
 		background: '#0b0b0c',
+		backgroundNavbar: '#080808',
 		primaryText: '#BDBDBD',
-		secondaryText: 'rgba(153, 27, 65, 0.548)',
+		secondaryText: '#0b0b0c',
+		navbarText: 'rgba(153, 27, 65, 0.548)',
 	},
 };
 

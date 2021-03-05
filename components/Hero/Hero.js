@@ -20,7 +20,6 @@ const StyledHeroContainer = styled.section`
 	}
 `;
 const StyledTextContainer = styled.div`
-	width: 50%;
 	position: relative;
 	height: 60%;
 	display: flex;
@@ -28,7 +27,6 @@ const StyledTextContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 `;
-
 const StyledFirstName = styled.h1`
 	display: inline;
 	position: relative;
@@ -41,12 +39,21 @@ const StyledFirstName = styled.h1`
 	color: ${({ color }) => color};
 	display: flex;
 	justify-content: center;
+	&:hover {
+		cursor: default;
+	}
 `;
-const StyledSurname = styled(StyledFirstName)`
-	&:after {
+const StyledSurname = styled(StyledFirstName)``;
+const StyledArrow = styled.div`
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	&:before {
+		bottom: 0;
 		content: '';
-		width: 0;
-		height: 0;
 		position: absolute;
 		border-left: 40px solid transparent;
 		border-right: 40px solid transparent;
@@ -55,9 +62,10 @@ const StyledSurname = styled(StyledFirstName)`
 		justify-content: center;
 		align-items: flex-end;
 		border-top: 40px solid #0b0b0c;
-		bottom: 0;
+		transform: z-index;
+		transition-duration: 0.2s;
 	}
-	&:before {
+	&:after {
 		content: '';
 		width: 0;
 		height: 0;
@@ -70,6 +78,24 @@ const StyledSurname = styled(StyledFirstName)`
 		align-items: flex-end;
 		border-top: 25px solid #313233;
 		bottom: 0;
+		transform: z-index;
+		transition-duration: 0.2s;
+	}
+
+	&:hover {
+		cursor: pointer;
+		&:after {
+			z-index: 101;
+			border-left: 40px solid transparent;
+			border-right: 40px solid transparent;
+			border-top: 40px solid #313233;
+		}
+		&:before {
+			border-left: 25px solid transparent;
+			border-right: 25px solid transparent;
+			border-top: 25px solid #0b0b0c;
+			z-index: 102;
+		}
 	}
 `;
 const StyledMiddleContainer = styled.div`
@@ -81,9 +107,8 @@ const StyledMiddleContainer = styled.div`
 	z-index: 101;
 	height: 20%;
 	bottom: 40%;
-	right: 20%;
+	right: 0;
 `;
-
 const StyledMiddle = styled.h3`
 	display: inline;
 	position: relative;
@@ -95,7 +120,7 @@ const StyledMiddle = styled.h3`
 	margin: 0;
 `;
 
-const Hero = ({ heroRef, setActive }) => {
+const Hero = ({ heroRef, setActive, scrollToRef }) => {
 	const { inView, setRefs } = useRefInView(heroRef);
 
 	useEffect(() => {
@@ -111,7 +136,8 @@ const Hero = ({ heroRef, setActive }) => {
 					<StyledMiddle color={'#0b0b0c'}>DEVELOPMENT</StyledMiddle>
 				</StyledMiddleContainer>
 				<StyledSurname withArrow={true} color='#0b0b0c'>
-					KNAP{' '}
+					KNAP
+					<StyledArrow onClick={() => scrollToRef(1)}></StyledArrow>
 				</StyledSurname>
 			</StyledTextContainer>
 		</StyledHeroContainer>

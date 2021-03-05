@@ -16,7 +16,11 @@ export default function Home() {
 	return (
 		<>
 			<Navbar scrollToRef={scrollToRef} active={active}></Navbar>
-			<Hero heroRef={elRef[0]} setActive={setActive}></Hero>
+			<Hero
+				heroRef={elRef[0]}
+				scrollToRef={scrollToRef}
+				setActive={setActive}
+			></Hero>
 			<About aboutRef={elRef[1]} setActive={setActive}></About>
 			<Products productsRef={elRef[2]} setActive={setActive}></Products>
 			<Contact contactRef={elRef[3]} setActive={setActive}></Contact>

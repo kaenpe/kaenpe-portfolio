@@ -17,7 +17,7 @@ const StyledButton = styled.button`
 	outline: none;
 	height: 100%;
 	&:hover {
-		color: ${({ theme }) => theme.colors.secondaryText};
+		color: ${({ theme }) => theme.colors.navbarText};
 		cursor: pointer;
 		font-size: 21px;
 	}

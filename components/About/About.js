@@ -16,7 +16,7 @@ const StyledAboutContainer = styled.section`
 
 const StyledUpperText = styled.h1`
 	display: inline;
-	color: ${({ theme }) => theme.colors.secondaryText};
+	color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
 	width: 40%;
 	text-align: center;
@@ -52,7 +52,9 @@ const About = ({ aboutRef, setActive }) => {
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>
-			<StyledUpperText visible={visible}>Something about me.</StyledUpperText>
+			<StyledUpperText visible={visible}>
+				HEY, I'M KAMIL. A DEVELOPER WHO LOVES TO CODE.
+			</StyledUpperText>
 			<StyledDivider></StyledDivider>
 			<StyledBottomText visible={visible}>
 				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
