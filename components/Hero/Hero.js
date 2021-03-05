@@ -16,7 +16,7 @@ const StyledHeroContainer = styled.section`
 		width: 100%;
 		height: 50vh;
 		bottom: 0;
-		background-color: #151617;
+		background-color: ${({ theme }) => theme.colors.secondBackground};
 	}
 `;
 const StyledTextContainer = styled.div`
@@ -76,7 +76,7 @@ const StyledArrow = styled.div`
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: 25px solid #313233;
+		border-top: 25px solid #151617;
 		bottom: 0;
 		transform: z-index;
 		transition-duration: 0.2s;
@@ -88,7 +88,7 @@ const StyledArrow = styled.div`
 			z-index: 101;
 			border-left: 40px solid transparent;
 			border-right: 40px solid transparent;
-			border-top: 40px solid #313233;
+			border-top: 40px solid #151617;
 		}
 		&:before {
 			border-left: 25px solid transparent;
@@ -135,7 +135,7 @@ const Hero = ({ heroRef, setActive, scrollToRef }) => {
 					<StyledMiddle color={'#313233'}>WEB </StyledMiddle>
 					<StyledMiddle color={'#0b0b0c'}>DEVELOPMENT</StyledMiddle>
 				</StyledMiddleContainer>
-				<StyledSurname withArrow={true} color='#0b0b0c'>
+				<StyledSurname color='#0b0b0c'>
 					KNAP
 					<StyledArrow onClick={() => scrollToRef(1)}></StyledArrow>
 				</StyledSurname>

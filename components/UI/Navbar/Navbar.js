@@ -10,7 +10,7 @@ const StyledNavContainer = styled.nav`
 	align-items: center;
 	height: ${({ toggle }) => (toggle ? '5vh' : '0')};
 	background-color: ${({ theme }) => theme.colors.backgroundNavbar};
-	z-index: 102;
+	z-index: 999;
 	top: 0;
 	transition-duration: 0.1s;
 	transform: height;

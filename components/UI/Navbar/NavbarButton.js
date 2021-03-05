@@ -4,7 +4,7 @@ const StyledButton = styled.button`
 	background-color: ${({ active, button }) => {
 		if (button === 'HOME' && active === 'HOME') return '#ffffff30';
 		if (button === 'ABOUT' && active === 'ABOUT') return '#ffffff30';
-		if (button === 'PRODUCTS' && active === 'PRODUCTS') return '#ffffff30';
+		if (button === 'SHOWCASE' && active === 'SHOWCASE') return '#ffffff30';
 		if (button === 'CONTACT' && active === 'CONTACT') return '#ffffff30';
 		else return 'transparent';
 	}};

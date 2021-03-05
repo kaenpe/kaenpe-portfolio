@@ -36,7 +36,7 @@ const Product = ({ productsRef, setActive }) => {
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
-		inView ? setActive('PRODUCTS') : null;
+		inView ? setActive('SHOWCASE') : null;
 	}, [inView]);
 	return (
 		<StyledAboutContainer ref={setRefs}>

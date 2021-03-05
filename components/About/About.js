@@ -7,11 +7,19 @@ const StyledAboutContainer = styled.section`
 	height: 50vh;
 	position: relative;
 	display: flex;
-	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: #00000075;
+	background-color: ${({ theme }) => theme.colors.background};
 	overflow: hidden;
+	&:after {
+		content: '';
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		left: 0;
+		background-color: ${({ theme }) => theme.colors.thirdBackground};
+		z-index: 101;
+	}
 `;
 
 const StyledUpperText = styled.h1`
@@ -20,7 +28,7 @@ const StyledUpperText = styled.h1`
 	position: relative;
 	width: 40%;
 	text-align: center;
-
+	z-index: 102;
 	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
 	transform: opacity;
 	transform: ${({ visible }) =>
@@ -32,14 +40,19 @@ const StyledBottomText = styled(StyledUpperText)`
 	transform: ${({ visible }) =>
 		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
 	color: ${({ theme }) => theme.colors.primaryText};
+	z-index: 102;
 `;
 
 const StyledDivider = styled.div`
-	height: 1px;
-	width: 40vw;
-	background-color: #eeeeee10;
+	height: 100%;
+	width: 2px;
+	background-color: #636363;
 	position: relative;
-	z-index: 100;
+	z-index: 102;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
 `;
 
 const About = ({ aboutRef, setActive }) => {
