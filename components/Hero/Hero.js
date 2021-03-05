@@ -19,7 +19,15 @@ const StyledHeroContainer = styled.section`
 		background-color: #151617;
 	}
 `;
-
+const StyledTextContainer = styled.div`
+	width: 50%;
+	position: relative;
+	height: 60%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+`;
 const StyledHeader = styled.h1`
 	display: inline;
 	position: relative;
@@ -28,49 +36,71 @@ const StyledHeader = styled.h1`
 	font-size: 12rem;
 	word-spacing: 0.2em;
 	margin: 0;
+	color: ${({ color }) => color};
 `;
+const StyledMiddleContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 101;
+	height: 20%;
+	bottom: 40%;
+	right: 20%;
+`;
+
 const StyledMiddle = styled.h3`
 	display: inline;
 	position: relative;
 	z-index: 101;
 	float: right;
 	font-weight: bold;
-	color: #0b0b0c;
-	font-size: 6rem;
+	color: ${({ color }) => color};
+	font-size: 2rem;
 	margin: 0;
-	font-size: 72px;
-	span {
-		height: 50%;
-		position: absolute;
-		color: #313233;
-		overflow: hidden;
+`;
+
+const StyledArrow = styled.div`
+	width: 0;
+	height: 0;
+	position: absolute;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	z-index: 101;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	border-top: 40px solid #0b0b0c;
+	bottom: 0;
+	&:after {
+		content: '';
+		width: 0;
+		height: 0;
+		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+		z-index: 101;
+		border-top: 25px solid #313233;
 	}
 `;
 const Hero = ({ heroRef, setActive }) => {
-	const [visible, setVisible] = useState('hide');
 	const { inView, setRefs } = useRefInView(heroRef);
 
 	useEffect(() => {
-		inView ? setVisible('show') : setVisible('hide');
 		inView ? setActive('HOME') : null;
 	}, [inView]);
 
 	return (
 		<StyledHeroContainer ref={setRefs}>
-			<StyledHeader>
-				<span className='first' style={{ color: '#313233' }}>
-					KAMIL{' '}
-				</span>
-			</StyledHeader>
-			<StyledMiddle>
-				<span>WEB DEVELOPMENT DESIGN FREELANCE</span>
-				WEB DEVELOPMENT DESIGN FREELANCE
-			</StyledMiddle>
-			<StyledHeader>
-				<span className='second' style={{ color: '#0b0b0c' }}>
-					KNAP{' '}
-				</span>
-			</StyledHeader>
+			<StyledTextContainer>
+				<StyledHeader color='#313233'>KAMIL </StyledHeader>
+				<StyledMiddleContainer>
+					<StyledMiddle color={'#313233'}>WEB </StyledMiddle>
+					<StyledMiddle color={'#0b0b0c'}>DEVELOPMENT</StyledMiddle>
+				</StyledMiddleContainer>
+				<StyledHeader color='#0b0b0c'>KNAP </StyledHeader>
+				<StyledArrow></StyledArrow>
+			</StyledTextContainer>
 		</StyledHeroContainer>
 	);
 };
