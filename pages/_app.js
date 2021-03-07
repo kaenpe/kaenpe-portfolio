@@ -1,5 +1,6 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import Layout from '../components/UI/layout';
+import ThemeContextProvider from '../context/ThemeContext';
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -24,28 +25,14 @@ a:hover {
 
 `;
 
-const theme = {
-	colors: {
-		background: '#0b0b0c',
-		secondBackground: '#313233',
-		thirdBackground: '#151617',
-		backgroundNavbar: '#080808',
-		primaryText: '#BDBDBD',
-		secondaryText: '#0b0b0c',
-		navbarText: 'rgb(83, 11, 33)',
-	},
-};
-
 export default function App({ Component, pageProps }) {
 	return (
 		<>
 			<GlobalStyle />
 			<ThemeContextProvider>
-				<ThemeProvider theme={theme}>
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</ThemeProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</ThemeContextProvider>
 		</>
 	);

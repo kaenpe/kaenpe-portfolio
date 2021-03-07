@@ -69,6 +69,7 @@ const StyledLowerWrap = styled.div`
 	justify-content: center;
 	height: 50%;
 	align-items: center;
+	text-align: center;
 `;
 
 const StyledAvatar = styled(Image)`
@@ -105,7 +106,7 @@ const About = ({ aboutRef, setActive }) => {
 					<StyledAvatar alt='avatar' src='/av.jpg' layout='fill'></StyledAvatar>
 				</StyledImageWrap>
 				<StyledUpperText visible={visible}>
-					HEY, I'M KAMIL. A DEVELOPER WHO LOVES TO CODE.
+					HEY, I'M LOREM - IPSUM DOLOR SIT AMET.
 				</StyledUpperText>
 			</StyledUpperWrap>
 			<StyledDivider></StyledDivider>
@@ -115,26 +116,33 @@ const About = ({ aboutRef, setActive }) => {
 					Poland. My goal is to eventually become a self-reliant freelancer.
 					Here you can find all of my work. */}
 					<StyledParagraph side={'left'} visible={visible}>
-						As an art director, designer and front-end developer, I have been
-						building interactive experiences, creating brands and designing
-						print materials for over eight years. I’m a fan of structure and
-						simplicity in both design and code; organization and consistency are
-						very important to me. <br />
-						<br />
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum.
 					</StyledParagraph>
 					<StyledParagraph side={'right'} visible={visible}>
 						{' '}
-						A few of my strengths are creative concept and strategy development,
-						art direction, creative direction, UI/UX design, front-end
-						development, typography, and bridging communication between
-						developers and designers. <br /> <br />
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum.
 					</StyledParagraph>
 					<StyledParagraph side={'left'} visible={visible}>
 						{' '}
-						I find inspiration in nature, architecture, vintage fashion, indie
-						electronica, science fiction and good lattes. When I’m not working,
-						you can find me at a local coffee house, exploring indie art fairs,
-						kickboxing, or even enjoying an old-fashioned cocktail.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum.
 					</StyledParagraph>
 				</StyledBottomText>
 			</StyledLowerWrap>

@@ -4,7 +4,7 @@ import useRefInView from '../../hooks/useRefInView';
 
 const StyledAboutContainer = styled.section`
 	width: 100%;
-	height: 70vh;
+	height: 100vh;
 	position: relative;
 	display: flex;
 	justify-content: space-evenly;
@@ -46,7 +46,6 @@ const Contact = ({ contactRef, setActive }) => {
 				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
 				Poland. My goal is to eventually become a self-reliant freelancer. Here
 				you can find all of my work.
-				{inView ? 'yes' : 'no'}
 			</StyledHeader>
 		</StyledAboutContainer>
 	);

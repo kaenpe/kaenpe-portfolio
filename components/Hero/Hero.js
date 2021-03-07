@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
-import ThemeContext from '../../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 const StyledHeroContainer = styled.section`
 	width: 100%;
 	height: 100vh;
@@ -37,14 +37,16 @@ const StyledFirstName = styled.h1`
 	word-spacing: 0.2em;
 	margin: 0;
 	padding: 10px;
-	color: ${({ color }) => color};
+	color: ${({ theme }) => theme.colors.secondBackground};
 	display: flex;
 	justify-content: center;
 	&:hover {
 		cursor: default;
 	}
 `;
-const StyledSurname = styled(StyledFirstName)``;
+const StyledSurname = styled(StyledFirstName)`
+	color: ${({ theme }) => theme.colors.background};
+`;
 const StyledArrow = styled.div`
 	@keyframes jiggle {
 		from {
@@ -74,7 +76,7 @@ const StyledArrow = styled.div`
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: 35px solid #0b0b0c;
+		border-top: ${({ theme }) => `35px solid ${theme.colors.background}`};
 		transform: z-index;
 		transition-duration: 0.2s;
 	}
@@ -106,7 +108,7 @@ const StyledArrow = styled.div`
 		&:before {
 			border-left: 20px solid transparent;
 			border-right: 20px solid transparent;
-			border-top: 20px solid #0b0b0c;
+			border-top: ${({ theme }) => `20px solid ${theme.colors.background}`};
 			z-index: 102;
 		}
 	}
@@ -128,27 +130,31 @@ const StyledMiddle = styled.h3`
 	z-index: 101;
 	float: right;
 	font-weight: bold;
-	color: ${({ color }) => color};
+	color: ${({ upper, theme }) =>
+		upper === true ? theme.colors.secondBackground : theme.colors.background};
 	font-size: 2rem;
 	margin: 0;
 `;
 
 const Hero = ({ heroRef, setActive, scrollToRef }) => {
 	const { inView, setRefs } = useRefInView(heroRef);
-
+	const { setLightTheme } = useContext(ThemeContext);
 	useEffect(() => {
 		inView ? setActive('HOME') : null;
 	}, [inView]);
 
 	return (
-		<StyledHeroContainer ref={setRefs}>
+		<StyledHeroContainer
+			ref={setRefs}
+			onClick={() => setLightTheme((prevState) => !prevState)}
+		>
 			<StyledTextContainer>
-				<StyledFirstName color='#313233'>KAMIL </StyledFirstName>
+				<StyledFirstName>KAMIL</StyledFirstName>
 				<StyledMiddleContainer>
-					<StyledMiddle color={'#313233'}>WEB </StyledMiddle>
-					<StyledMiddle color={'#0b0b0c'}>DEVELOPMENT</StyledMiddle>
+					<StyledMiddle upper={true}>WEB </StyledMiddle>
+					<StyledMiddle>DEVELOPMENT</StyledMiddle>
 				</StyledMiddleContainer>
-				<StyledSurname color='#0b0b0c'>
+				<StyledSurname>
 					KNAP
 					<StyledArrow onClick={() => scrollToRef(1)}></StyledArrow>
 				</StyledSurname>
