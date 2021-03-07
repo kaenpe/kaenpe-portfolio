@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
-
+import ThemeContext from '../../context/ThemeContext';
 const StyledHeroContainer = styled.section`
 	width: 100%;
 	height: 100vh;

@@ -40,11 +40,13 @@ export default function App({ Component, pageProps }) {
 	return (
 		<>
 			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
-			</ThemeProvider>
+			<ThemeContextProvider>
+				<ThemeProvider theme={theme}>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</ThemeProvider>
+			</ThemeContextProvider>
 		</>
 	);
 }
