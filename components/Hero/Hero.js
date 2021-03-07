@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
 
 const StyledHeroContainer = styled.section`
@@ -10,6 +10,7 @@ const StyledHeroContainer = styled.section`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
 	&:after {
 		content: '';
 		position: absolute;
@@ -45,23 +46,35 @@ const StyledFirstName = styled.h1`
 `;
 const StyledSurname = styled(StyledFirstName)``;
 const StyledArrow = styled.div`
+	@keyframes jiggle {
+		from {
+			bottom: 10px;
+		}
+		50% {
+			bottom: 0;
+		} /* ignored */
+		to {
+			bottom: 10px;
+		}
+	}
 	width: 0;
 	height: 0;
 	position: absolute;
 	bottom: 0;
 	display: flex;
 	justify-content: center;
+	animation: jiggle 2s infinite ease;
 	&:before {
 		bottom: 0;
 		content: '';
 		position: absolute;
-		border-left: 40px solid transparent;
-		border-right: 40px solid transparent;
+		border-left: 35px solid transparent;
+		border-right: 35px solid transparent;
 		z-index: 101;
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: 40px solid #0b0b0c;
+		border-top: 35px solid #0b0b0c;
 		transform: z-index;
 		transition-duration: 0.2s;
 	}
@@ -70,13 +83,13 @@ const StyledArrow = styled.div`
 		width: 0;
 		height: 0;
 		position: absolute;
-		border-left: 25px solid transparent;
-		border-right: 25px solid transparent;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
 		z-index: 102;
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: 25px solid #151617;
+		border-top: 20px solid #151617;
 		bottom: 0;
 		transform: z-index;
 		transition-duration: 0.2s;
@@ -86,14 +99,14 @@ const StyledArrow = styled.div`
 		cursor: pointer;
 		&:after {
 			z-index: 101;
-			border-left: 40px solid transparent;
-			border-right: 40px solid transparent;
-			border-top: 40px solid #151617;
+			border-left: 35px solid transparent;
+			border-right: 35px solid transparent;
+			border-top: 35px solid #151617;
 		}
 		&:before {
-			border-left: 25px solid transparent;
-			border-right: 25px solid transparent;
-			border-top: 25px solid #0b0b0c;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid #0b0b0c;
 			z-index: 102;
 		}
 	}
