@@ -32,7 +32,7 @@ const theme = (lightTheme) => {
 };
 
 const Layout = ({ children }) => {
-	const { lightTheme, setLightTheme } = useContext(ThemeContext);
+	const { lightTheme } = useContext(ThemeContext);
 	return (
 		<ThemeProvider theme={theme(lightTheme)}>
 			<StyledLayout>{children}</StyledLayout>
