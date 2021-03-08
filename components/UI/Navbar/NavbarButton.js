@@ -10,16 +10,14 @@ const StyledButton = styled.button`
 	}};
 	color: ${({ theme }) => theme.colors.primaryText};
 	font-size: 18px;
-	width: 150px;
+	width: 25%;
 	border-style: none;
 	transition-duration: 0.5s;
 	transform: font-size;
-	outline: none;
 	height: 100%;
 	&:hover {
 		color: ${({ theme }) => theme.colors.navbarText};
 		cursor: pointer;
-		font-size: 21px;
 	}
 `;
 const NavbarButton = ({ button, scrollToRef, id, active }) => {

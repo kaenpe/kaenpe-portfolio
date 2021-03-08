@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from '../../../context/ThemeContext';
 import NavbarButton from './NavbarButton';
 
 const StyledNavContainer = styled.nav`
 	position: fixed;
-	width: 100%;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 	height: ${({ toggle }) => (toggle ? '5vh' : '0')};
 	background-color: ${({ theme }) => theme.colors.backgroundNavbar};
 	z-index: 999;
@@ -18,11 +20,8 @@ const StyledNavContainer = styled.nav`
 `;
 
 const StyledButtonList = styled.ul`
-	display: grid;
-	grid-template-columns: 150px 150px 150px 150px;
-	justify-content: center;
+	grid-column: 4/8;
 	width: 100%;
-	align-items: center;
 	grid-gap: 30px;
 	list-style-type: none;
 	margin: 0;
@@ -30,9 +29,19 @@ const StyledButtonList = styled.ul`
 	height: 100%;
 `;
 
+const StyledThemeSlider = styled.div`
+	grid-column: 10/11;
+	font-size: 18px;
+	display: flex;
+	width: 100%;
+	border-style: none;
+	transform: font-size;
+	height: 100%;
+`;
+
 const Navbar = ({ scrollToRef, active }) => {
 	const [toggleNavbar, setToggleNavbar] = useState(true);
-
+	const { setLightTheme } = useContext(ThemeContext);
 	useEffect(() => {
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function () {
@@ -59,6 +68,9 @@ const Navbar = ({ scrollToRef, active }) => {
 					></NavbarButton>
 				))}
 			</StyledButtonList>
+			<StyledThemeSlider
+				onClick={() => setLightTheme((prevState) => !prevState)}
+			></StyledThemeSlider>
 		</StyledNavContainer>
 	);
 };

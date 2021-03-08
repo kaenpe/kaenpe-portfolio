@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
 import { ThemeContext } from '../../context/ThemeContext';
 const StyledHeroContainer = styled.section`
@@ -138,7 +138,7 @@ const StyledMiddle = styled.h3`
 
 const Hero = ({ heroRef, setActive, scrollToRef }) => {
 	const { inView, setRefs } = useRefInView(heroRef);
-	const { setLightTheme } = useContext(ThemeContext);
+
 	useEffect(() => {
 		inView ? setActive('HOME') : null;
 	}, [inView]);
