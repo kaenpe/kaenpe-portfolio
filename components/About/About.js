@@ -89,7 +89,6 @@ const StyledParagraph = styled.p`
 		}
 	}};
 	transition-duration: 1s;
-	transition-duration: 2s;
 `;
 const About = ({ aboutRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');

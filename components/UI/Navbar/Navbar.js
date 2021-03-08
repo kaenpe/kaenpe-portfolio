@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../../context/ThemeContext';
@@ -10,7 +11,7 @@ const StyledNavContainer = styled.nav`
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: ${({ toggle }) => (toggle ? '5vh' : '0')};
+	height: ${({ toggle }) => (toggle ? '50px' : '0')};
 	background-color: ${({ theme }) => theme.colors.backgroundNavbar};
 	z-index: 999;
 	top: 0;
@@ -36,28 +37,30 @@ const StyledThemeSlider = styled.div`
 	grid-column: 10/11;
 	font-size: 18px;
 	display: flex;
-	width: 60%;
+	width: 70px;
 	border-style: none;
 	transform: font-size;
-	height: 50%;
+	height: 25px;
 	border-radius: 15px;
 	color: ${({ theme }) => theme.colors.backgroundNavbar};
 	background-color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
-	&:hover {
-		cursor: pointer;
-	}
 `;
 
-const StyledCircle = styled.div`
+const StyledCircle = styled(motion.div)`
 	position: absolute;
-	height: 100%;
-	background-color: red;
+	height: 25px;
+	width: 25px;
 	border-radius: 50%;
-	left: ${({ type }) => (type === true ? '0' : '80%')};
-	transform: left right;
+	left: 0;
+	border: ${({ theme }) => `1px solid ${theme.colors.primaryText}`};
+	transform: left;
 	transition-duration: 0.5s;
 	background-color: ${({ theme }) => theme.colors.backgroundNavbar};
+	&:hover {
+		cursor: pointer;
+		background-color: ${({ theme }) => `${theme.colors.backgroundNavbar}95`};
+	}
 `;
 
 const Navbar = ({ scrollToRef, active }) => {
@@ -76,6 +79,7 @@ const Navbar = ({ scrollToRef, active }) => {
 		};
 	}, []);
 	const buttons = ['HOME', 'ABOUT', 'SHOWCASE', 'CONTACT'];
+
 	return (
 		<StyledNavContainer toggle={toggleNavbar}>
 			<StyledButtonList>
@@ -89,11 +93,13 @@ const Navbar = ({ scrollToRef, active }) => {
 					></NavbarButton>
 				))}
 			</StyledButtonList>
-			<StyledThemeSlider
-				onClick={() => setLightTheme((prevState) => !prevState)}
-			>
-				{lightTheme === true ? 'LIGHT' : 'DARK'}
-				<StyledCircle type={lightTheme}></StyledCircle>
+			<StyledThemeSlider>
+				<StyledCircle
+					onClick={() => setLightTheme((prevState) => !prevState)}
+					initial={{ left: lightTheme ? '0' : '45px' }}
+					animate={{ left: lightTheme ? '45px' : '0' }}
+					type={lightTheme}
+				></StyledCircle>
 			</StyledThemeSlider>
 		</StyledNavContainer>
 	);
