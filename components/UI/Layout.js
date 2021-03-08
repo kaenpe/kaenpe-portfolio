@@ -14,8 +14,8 @@ const theme = (lightTheme) => {
 				background: '#313233',
 				secondBackground: '#0b0b0c',
 				thirdBackground: '#151617',
-				backgroundNavbar: '#080808',
-				primaryText: '#BDBDBD',
+				backgroundNavbar: '#BDBDBD',
+				primaryText: '#080808',
 				secondaryText: '#0b0b0c',
 				navbarText: 'rgb(83, 11, 33)',
 		  })

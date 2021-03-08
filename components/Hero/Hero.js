@@ -144,10 +144,7 @@ const Hero = ({ heroRef, setActive, scrollToRef }) => {
 	}, [inView]);
 
 	return (
-		<StyledHeroContainer
-			ref={setRefs}
-			onClick={() => setLightTheme((prevState) => !prevState)}
-		>
+		<StyledHeroContainer ref={setRefs}>
 			<StyledTextContainer>
 				<StyledFirstName>KAMIL</StyledFirstName>
 				<StyledMiddleContainer>

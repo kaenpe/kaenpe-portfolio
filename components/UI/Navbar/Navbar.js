@@ -30,18 +30,39 @@ const StyledButtonList = styled.ul`
 `;
 
 const StyledThemeSlider = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	grid-column: 10/11;
 	font-size: 18px;
 	display: flex;
-	width: 100%;
+	width: 60%;
 	border-style: none;
 	transform: font-size;
+	height: 50%;
+	border-radius: 15px;
+	color: ${({ theme }) => theme.colors.backgroundNavbar};
+	background-color: ${({ theme }) => theme.colors.primaryText};
+	position: relative;
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
+const StyledCircle = styled.div`
+	position: absolute;
 	height: 100%;
+	background-color: red;
+	border-radius: 50%;
+	left: ${({ type }) => (type === true ? '0' : '80%')};
+	transform: left right;
+	transition-duration: 0.5s;
+	background-color: ${({ theme }) => theme.colors.backgroundNavbar};
 `;
 
 const Navbar = ({ scrollToRef, active }) => {
 	const [toggleNavbar, setToggleNavbar] = useState(true);
-	const { setLightTheme } = useContext(ThemeContext);
+	const { lightTheme, setLightTheme } = useContext(ThemeContext);
 	useEffect(() => {
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function () {
@@ -70,7 +91,10 @@ const Navbar = ({ scrollToRef, active }) => {
 			</StyledButtonList>
 			<StyledThemeSlider
 				onClick={() => setLightTheme((prevState) => !prevState)}
-			></StyledThemeSlider>
+			>
+				{lightTheme === true ? 'LIGHT' : 'DARK'}
+				<StyledCircle type={lightTheme}></StyledCircle>
+			</StyledThemeSlider>
 		</StyledNavContainer>
 	);
 };
