@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 const StyledButton = styled.button`
-	background-color: ${({ active, button }) => {
-		if (button === 'HOME' && active === 'HOME') return '#ffffff30';
-		if (button === 'ABOUT' && active === 'ABOUT') return '#ffffff30';
-		if (button === 'SHOWCASE' && active === 'SHOWCASE') return '#ffffff30';
-		if (button === 'CONTACT' && active === 'CONTACT') return '#ffffff30';
-		else return 'transparent';
-	}};
+	background-color: ${({ active, button, theme }) =>
+		button === active ? `${theme.colors.primaryText}50` : 'transparent'};
 	color: ${({ theme }) => theme.colors.primaryText};
 	font-size: 18px;
 	width: 80%;
