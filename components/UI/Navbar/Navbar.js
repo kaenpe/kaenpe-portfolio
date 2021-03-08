@@ -7,7 +7,7 @@ import NavbarButton from './NavbarButton';
 const StyledNavContainer = styled.nav`
 	position: fixed;
 	display: grid;
-	grid-template-columns: repeat(10, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	justify-content: center;
 	align-items: center;
 	width: 100%;
@@ -21,20 +21,24 @@ const StyledNavContainer = styled.nav`
 `;
 
 const StyledButtonList = styled.ul`
-	grid-column: 4/8;
+	grid-column: 2/6;
 	width: 100%;
-	grid-gap: 30px;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	@media (max-width: 699px) {
+		display: none;
+	}
 `;
 
 const StyledThemeSlider = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	grid-column: 10/11;
+	grid-column: 6;
 	font-size: 18px;
 	display: flex;
 	width: 70px;
@@ -45,6 +49,7 @@ const StyledThemeSlider = styled.div`
 	color: ${({ theme }) => theme.colors.backgroundNavbar};
 	background-color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
+	justify-self: center;
 `;
 
 const StyledCircle = styled(motion.div)`
@@ -62,7 +67,42 @@ const StyledCircle = styled(motion.div)`
 		background-color: ${({ theme }) => `${theme.colors.backgroundNavbar}95`};
 	}
 `;
+const StyledHamburgerContainer = styled.div`
+	@media (min-width: 700px) {
+		display: none;
+	}
+	height: 100%;
+	width: 50%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+`;
 
+const StyledHamburger = styled.div`
+	height: 3px;
+	background-color: ${({ theme }) => theme.colors.primaryText};
+	width: 60%;
+
+	&:after {
+		content: '';
+		top: 25%;
+		height: 3px;
+		position: absolute;
+		background-color: ${({ theme }) => theme.colors.primaryText};
+		width: 60%;
+	}
+	&:before {
+		content: '';
+		height: 3px;
+		position: absolute;
+		background-color: ${({ theme }) => theme.colors.primaryText};
+		width: 60%;
+		bottom: 25%;
+	}
+`;
 const Navbar = ({ scrollToRef, active }) => {
 	const [toggleNavbar, setToggleNavbar] = useState(true);
 	const { lightTheme, setLightTheme } = useContext(ThemeContext);
@@ -82,6 +122,9 @@ const Navbar = ({ scrollToRef, active }) => {
 
 	return (
 		<StyledNavContainer toggle={toggleNavbar}>
+			<StyledHamburgerContainer>
+				<StyledHamburger></StyledHamburger>
+			</StyledHamburgerContainer>
 			<StyledButtonList>
 				{buttons.map((button, id) => (
 					<NavbarButton
@@ -98,7 +141,6 @@ const Navbar = ({ scrollToRef, active }) => {
 					onClick={() => setLightTheme((prevState) => !prevState)}
 					initial={{ left: lightTheme ? '0' : '45px' }}
 					animate={{ left: lightTheme ? '45px' : '0' }}
-					type={lightTheme}
 				></StyledCircle>
 			</StyledThemeSlider>
 		</StyledNavContainer>
