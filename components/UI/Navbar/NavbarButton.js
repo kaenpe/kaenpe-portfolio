@@ -10,8 +10,11 @@ const StyledButton = styled.button`
 	}};
 	color: ${({ theme }) => theme.colors.primaryText};
 	font-size: 18px;
-	width: 20%;
+	width: 80%;
 	justify-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-style: none;
 	transition-duration: 0.5s;
 	transform: font-size;

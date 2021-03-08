@@ -7,7 +7,7 @@ import NavbarButton from './NavbarButton';
 const StyledNavContainer = styled.nav`
 	position: fixed;
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(8, 1fr);
 	justify-content: center;
 	align-items: center;
 	width: 100%;
@@ -21,15 +21,15 @@ const StyledNavContainer = styled.nav`
 `;
 
 const StyledButtonList = styled.ul`
-	grid-column: 2/6;
+	grid-column: 3/7;
 	width: 100%;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	display: flex;
-	justify-content: center;
-	@media (max-width: 699px) {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	@media (max-width: 849px) {
 		display: none;
 	}
 `;
@@ -38,7 +38,7 @@ const StyledThemeSlider = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	grid-column: 6;
+	grid-column: 8;
 	font-size: 18px;
 	display: flex;
 	width: 70px;
@@ -68,7 +68,7 @@ const StyledCircle = styled(motion.div)`
 	}
 `;
 const StyledHamburgerContainer = styled.div`
-	@media (min-width: 700px) {
+	@media (min-width: 850px) {
 		display: none;
 	}
 	height: 100%;
