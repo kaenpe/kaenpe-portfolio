@@ -72,7 +72,7 @@ const StyledHamburgerContainer = styled.div`
 		display: none;
 	}
 	height: 100%;
-	width: 50%;
+	width: 50px;
 	position: relative;
 	display: flex;
 	flex-direction: column;

@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import Head from 'next/head';
 import About from '../components/About/About';
 import Contact from '../components/Contact/Contact';
 import Hero from '../components/Hero/Hero';
@@ -16,9 +15,6 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
-				<title>Kamil Knap's portfolio</title>
-			</Head>
 			<Navbar scrollToRef={scrollToRef} active={active}></Navbar>
 			<Hero
 				heroRef={elRef[0]}
