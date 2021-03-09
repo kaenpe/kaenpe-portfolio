@@ -8,7 +8,23 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 16px;
+
+	@media (max-height: 780px) {
+		font-size: 10px;
+	}
+	@media (max-height: 330px) {
+		font-size: 6px;
+	}
+	@media (max-width: 970px) {
+		font-size: 10px;
+	}
+	@media (max-width: 750px) {
+		font-size: 6px;
+	}
+	@media (max-width: 370px){
+		font-size: 5px;
+	}
 }
 
 a {

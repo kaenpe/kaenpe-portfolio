@@ -27,15 +27,6 @@ const StyledUpperText = styled.h1`
 		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
 	transition-duration: 1s;
 	font-size: 3rem;
-	@media (max-height: 900px) {
-		font-size: 2rem;
-	}
-	@media (max-width: 750px) {
-		font-size: 2rem;
-	}
-	@media (max-width: 550px) {
-		font-size: 1.5rem;
-	}
 `;
 
 const StyledBottomText = styled.h1`
@@ -45,22 +36,6 @@ const StyledBottomText = styled.h1`
 	z-index: 102;
 	width: 70%;
 	font-size: 1.5rem;
-	@media (max-height: 900px) {
-		font-size: 1rem;
-	}
-	@media (max-height: 600px) {
-		font-size: 0.8rem;
-	}
-	@media (max-width: 750px) {
-		font-size: 1rem;
-	}
-
-	@media (max-width: 550px) {
-		font-size: 0.8rem;
-	}
-	@media (max-width: 350px) {
-		font-size: 0.6rem;
-	}
 `;
 
 const StyledDivider = styled.div`

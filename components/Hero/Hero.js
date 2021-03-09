@@ -9,6 +9,7 @@ const StyledHeroContainer = styled.section`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-size: 10rem;
 	overflow: hidden;
 	&:after {
 		content: '';
@@ -32,7 +33,6 @@ const StyledFirstName = styled.h1`
 	position: relative;
 	z-index: 101;
 	font-weight: bold;
-	font-size: 12rem;
 	word-spacing: 0.2em;
 	margin: 0;
 	height: 50vh;
@@ -41,18 +41,7 @@ const StyledFirstName = styled.h1`
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	@media (max-height: 450px) {
-		font-size: 8rem;
-	}
-	@media (max-height: 330px) {
-		font-size: 6rem;
-	}
-	@media (max-width: 650px) {
-		font-size: 8rem;
-	}
-	@media (max-width: 430px) {
-		font-size: 6rem;
-	}
+
 	&:hover {
 		cursor: default;
 	}
@@ -147,12 +136,6 @@ const StyledMiddle = styled.h3`
 	color: ${({ upper, theme }) =>
 		upper === true ? theme.colors.secondBackground : theme.colors.background};
 	font-size: 2rem;
-	@media (max-width: 650px) {
-		font-size: 1.5rem;
-	}
-	@media (max-width: 430px) {
-		font-size: 1rem;
-	}
 	margin: 0;
 `;
 
