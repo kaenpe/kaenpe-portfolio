@@ -5,6 +5,7 @@ const StyledLayout = styled.div`
 	background-color: ${({ theme }) => theme.colors.background};
 	height: 100%;
 	width: 100%;
+	font-size: 16px !important;
 `;
 
 const theme = (lightTheme) => {

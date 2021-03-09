@@ -35,12 +35,18 @@ const StyledFirstName = styled.h1`
 	font-size: 12rem;
 	word-spacing: 0.2em;
 	margin: 0;
-	height: 40vh;
+	height: 50vh;
 	padding: 10px;
 	color: ${({ theme }) => theme.colors.secondBackground};
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
+	@media (max-height: 450px) {
+		font-size: 8rem;
+	}
+	@media (max-height: 330px) {
+		font-size: 6rem;
+	}
 	@media (max-width: 650px) {
 		font-size: 8rem;
 	}
