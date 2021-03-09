@@ -52,7 +52,7 @@ const StyledThemeSlider = styled.div`
 	justify-self: center;
 `;
 
-const StyledCircle = styled(motion.div)`
+const StyledCircle = styled(motion.button)`
 	position: absolute;
 	height: 25px;
 	width: 25px;
@@ -116,7 +116,7 @@ const Navbar = ({ scrollToRef, active }) => {
 					if (window.scrollY !== 0) {
 						setToggleNavbar(false);
 					}
-				}, 2000);
+				}, 4000);
 			} else {
 				setToggleNavbar(false);
 			}
@@ -143,6 +143,7 @@ const Navbar = ({ scrollToRef, active }) => {
 			</StyledButtonList>
 			<StyledThemeSlider>
 				<StyledCircle
+					label={'theme circle'}
 					onClick={() => setLightTheme((prevState) => !prevState)}
 					initial={{ left: lightTheme ? '0' : '45px' }}
 					animate={{ left: lightTheme ? '45px' : '0' }}

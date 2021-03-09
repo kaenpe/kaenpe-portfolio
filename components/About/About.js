@@ -27,6 +27,15 @@ const StyledUpperText = styled.h1`
 		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
 	transition-duration: 1s;
 	font-size: 3rem;
+	@media (max-height: 900px) {
+		font-size: 2rem;
+	}
+	@media (max-width: 750px) {
+		font-size: 2rem;
+	}
+	@media (max-width: 550px) {
+		font-size: 1.5rem;
+	}
 `;
 
 const StyledBottomText = styled.h1`
@@ -36,6 +45,22 @@ const StyledBottomText = styled.h1`
 	z-index: 102;
 	width: 70%;
 	font-size: 1.5rem;
+	@media (max-height: 900px) {
+		font-size: 1rem;
+	}
+	@media (max-height: 600px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 750px) {
+		font-size: 1rem;
+	}
+
+	@media (max-width: 550px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 350px) {
+		font-size: 0.6rem;
+	}
 `;
 
 const StyledDivider = styled.div`
@@ -55,6 +80,22 @@ const StyledImageWrap = styled.div`
 	border-radius: 50%;
 	position: relative;
 	overflow: hidden;
+	@media (max-height: 900px) {
+		height: 200px;
+		width: 200px;
+	}
+	@media (max-height: 600px) {
+		height: 150px;
+		width: 150px;
+	}
+	@media (max-width: 750px) {
+		height: 200px;
+		width: 200px;
+	}
+	@media (max-width: 550px) {
+		height: 150px;
+		width: 150px;
+	}
 `;
 const StyledUpperWrap = styled.div`
 	display: flex;
@@ -69,7 +110,6 @@ const StyledLowerWrap = styled.div`
 	justify-content: center;
 	height: 50%;
 	align-items: center;
-	text-align: center;
 `;
 
 const StyledAvatar = styled(Image)`
@@ -78,6 +118,8 @@ const StyledAvatar = styled(Image)`
 
 const StyledParagraph = styled.p`
 	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
+	display: inline-block;
+	margin: 1rem;
 	transform: opacity;
 	transform: ${({ visible, side }) => {
 		if (visible === 'show') {
@@ -89,6 +131,7 @@ const StyledParagraph = styled.p`
 		}
 	}};
 	transition-duration: 1s;
+	line-height: 1.4;
 `;
 const About = ({ aboutRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');
@@ -105,43 +148,25 @@ const About = ({ aboutRef, setActive }) => {
 					<StyledAvatar alt='avatar' src='/av.jpg' layout='fill'></StyledAvatar>
 				</StyledImageWrap>
 				<StyledUpperText visible={visible}>
-					HEY, I'M LOREM - IPSUM DOLOR SIT AMET.
+					HEY, I'M KAMIL - AN ASPIRING FULLSTACK DEVELOPER.
 				</StyledUpperText>
 			</StyledUpperWrap>
 			<StyledDivider></StyledDivider>
 			<StyledLowerWrap>
 				<StyledBottomText>
-					{/* Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
-					Poland. My goal is to eventually become a self-reliant freelancer.
-					Here you can find all of my work. */}
 					<StyledParagraph side={'left'} visible={visible}>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						My name is Kamil Knap and I'm a fullstack developer from Poland. My
+						goal is to eventually become a self-sustaining freelancer. Here you
+						can find all of my work.
 					</StyledParagraph>
 					<StyledParagraph side={'right'} visible={visible}>
-						{' '}
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Some of my strengths include front-end and back-end development,
+						logical and strategic thinking, quickly finding solutions to
+						encountered problems, desire to learn new technologies and both.
 					</StyledParagraph>
 					<StyledParagraph side={'left'} visible={visible}>
-						{' '}
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Aside from programming, I'm a gaming enthusiast, a fan of fantasy
+						genre in books, and a dog lover.{' '}
 					</StyledParagraph>
 				</StyledBottomText>
 			</StyledLowerWrap>

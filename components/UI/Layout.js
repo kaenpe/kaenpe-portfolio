@@ -13,7 +13,7 @@ const theme = (lightTheme) => {
 		? (theme.colors = {
 				background: '#313233',
 				secondBackground: '#0b0b0c',
-				thirdBackground: '#cccccc',
+				thirdBackground: '#c1c1c1',
 				backgroundNavbar: '#BDBDBD',
 				primaryText: '#080808',
 				secondaryText: '#0b0b0c',

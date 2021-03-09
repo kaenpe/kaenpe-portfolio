@@ -21,7 +21,7 @@ const StyledHeroContainer = styled.section`
 `;
 const StyledTextContainer = styled.div`
 	position: relative;
-	height: 60%;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -35,16 +35,25 @@ const StyledFirstName = styled.h1`
 	font-size: 12rem;
 	word-spacing: 0.2em;
 	margin: 0;
+	height: 40vh;
 	padding: 10px;
 	color: ${({ theme }) => theme.colors.secondBackground};
 	display: flex;
 	justify-content: center;
+	align-items: flex-end;
+	@media (max-width: 650px) {
+		font-size: 8rem;
+	}
+	@media (max-width: 430px) {
+		font-size: 6rem;
+	}
 	&:hover {
 		cursor: default;
 	}
 `;
 const StyledSurname = styled(StyledFirstName)`
 	color: ${({ theme }) => theme.colors.background};
+	align-items: flex-start;
 `;
 const StyledArrow = styled.div`
 	@keyframes jiggle {
@@ -132,6 +141,12 @@ const StyledMiddle = styled.h3`
 	color: ${({ upper, theme }) =>
 		upper === true ? theme.colors.secondBackground : theme.colors.background};
 	font-size: 2rem;
+	@media (max-width: 650px) {
+		font-size: 1.5rem;
+	}
+	@media (max-width: 430px) {
+		font-size: 1rem;
+	}
 	margin: 0;
 `;
 
