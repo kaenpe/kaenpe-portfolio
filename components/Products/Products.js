@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useRefInView from '../../hooks/useRefInView';
 import Image from 'next/image';
+import Card from './Card';
 const StyledAboutContainer = styled.section`
 	width: 100%;
 	height: 100vh;
@@ -100,35 +101,22 @@ const Product = ({ productsRef, setActive }) => {
 		if (type === 'burger' && toggleCard === 'voxel') setToggleCard('burger');
 		if (type === 'voxel' && toggleCard === 'burger') setToggleCard('voxel');
 	};
+
+	const types = ['burger', 'voxel'];
 	return (
 		<StyledAboutContainer ref={setRefs}>
 			<StyledCardContainer>
-				<StyledCard
-					type={'burger'}
-					main={toggleCard}
-					onClick={() => changeMainCard('burger')}
-				>
-					<div className='upperHalf'>
-						<Image src='/burger.png' layout='fill'></Image>
-					</div>
-
-					<div className='lowerHalf'></div>
-				</StyledCard>
-				<StyledCard
-					type={'voxel'}
-					main={toggleCard}
-					onClick={changeMainCard}
-					onClick={() => changeMainCard('voxel')}
-				>
-					<div className='upperHalf'>
-						<Image src='/voxel.png' layout='fill'></Image>
-					</div>
-
-					<div className='lowerHalf'></div>
-				</StyledCard>
+				{types.map((card, idx) => (
+					<Card
+						main={toggleCard}
+						type={card}
+						changeCard={changeMainCard}
+						key={idx}
+					></Card>
+				))}
 			</StyledCardContainer>
 			<StyledDivider></StyledDivider>
-			<StyledHeader visible={visible}>sd</StyledHeader>
+			<StyledHeader visible={visible}></StyledHeader>
 		</StyledAboutContainer>
 	);
 };
