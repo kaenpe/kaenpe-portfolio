@@ -10,7 +10,6 @@ export default function Home() {
 	const [active, setActive] = useState('HOME');
 	const scrollToRef = (num) => {
 		elRef[num].current.scrollIntoView({ behavior: 'smooth' });
-		console.log('successfully scrolled');
 	};
 
 	return (

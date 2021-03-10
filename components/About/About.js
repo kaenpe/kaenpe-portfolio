@@ -9,7 +9,7 @@ const StyledAboutContainer = styled.section`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.thirdBackground};
 	overflow: hidden;
@@ -26,16 +26,7 @@ const StyledUpperText = styled.h1`
 	transform: ${({ visible }) =>
 		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
 	transition-duration: 1s;
-	font-size: 3vw;
-`;
-
-const StyledBottomText = styled.h1`
-	display: inline;
-	color: ${({ theme }) => theme.colors.primaryText};
-	position: relative;
-	z-index: 102;
-	width: 70%;
-	font-size: 2vw;
+	font-size: 2.5vw;
 `;
 
 const StyledDivider = styled.div`
@@ -83,8 +74,14 @@ const StyledUpperWrap = styled.div`
 const StyledLowerWrap = styled.div`
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
 	height: 50%;
 	align-items: center;
+	color: ${({ theme }) => theme.colors.primaryText};
+	position: relative;
+	z-index: 102;
+	width: 70%;
+	font-size: 2vw;
 `;
 
 const StyledAvatar = styled(Image)`
@@ -128,22 +125,20 @@ const About = ({ aboutRef, setActive }) => {
 			</StyledUpperWrap>
 			<StyledDivider></StyledDivider>
 			<StyledLowerWrap>
-				<StyledBottomText>
-					<StyledParagraph side={'left'} visible={visible}>
-						My name is Kamil Knap and I'm a fullstack developer from Poland. My
-						goal is to eventually become a self-sustaining freelancer. Here you
-						can find all of my work.
-					</StyledParagraph>
-					<StyledParagraph side={'right'} visible={visible}>
-						Some of my strengths include front-end and back-end development,
-						logical and strategic thinking, quickly finding solutions to
-						encountered problems, desire to learn new technologies and both.
-					</StyledParagraph>
-					<StyledParagraph side={'left'} visible={visible}>
-						Aside from programming, I'm a gaming enthusiast, a fan of fantasy
-						genre in books, and a dog lover.{' '}
-					</StyledParagraph>
-				</StyledBottomText>
+				<StyledParagraph side={'left'} visible={visible}>
+					My name is Kamil Knap and I'm a fullstack developer from Poland. My
+					goal is to eventually become a self-sustaining freelancer. Here you
+					can find all of my work.
+				</StyledParagraph>
+				<StyledParagraph side={'right'} visible={visible}>
+					Some of my strengths include front-end and back-end development,
+					logical and strategic thinking, quickly finding solutions to
+					encountered problems, desire to learn new technologies and both.
+				</StyledParagraph>
+				<StyledParagraph side={'left'} visible={visible}>
+					Aside from programming, I'm a gaming enthusiast, a fan of fantasy
+					genre in books, and a dog lover.{' '}
+				</StyledParagraph>
 			</StyledLowerWrap>
 		</StyledAboutContainer>
 	);

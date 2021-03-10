@@ -8,19 +8,8 @@ const GlobalStyle = createGlobalStyle`
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Spartan', sans-serif;
   font-size: 16px;
-
-	
-	/* @media (max-width: 970px) {
-		font-size: 10px;
-	}
-	@media (max-width: 750px) {
-		font-size: 8px;
-	}
-	@media (max-width: 440px){
-		font-size: 6px;
-	} */
 }
 
 a {
