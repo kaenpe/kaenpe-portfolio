@@ -112,16 +112,16 @@ const Navbar = ({ scrollToRef, active }) => {
 			var currentScrollPos = window.pageYOffset;
 			if (prevScrollpos > currentScrollPos) {
 				setToggleNavbar(true);
-				setTimeout(() => {
-					if (window.scrollY !== 0) {
-						setToggleNavbar(false);
-					}
-				}, 4000);
 			} else {
 				setToggleNavbar(false);
 			}
 			prevScrollpos = currentScrollPos;
 		};
+		setTimeout(() => {
+			if (window.scrollY !== 0) {
+				setToggleNavbar(false);
+			}
+		}, 2000);
 	}, []);
 	const buttons = ['HOME', 'ABOUT', 'SHOWCASE', 'CONTACT'];
 

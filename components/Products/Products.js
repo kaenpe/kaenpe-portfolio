@@ -7,15 +7,15 @@ const StyledAboutContainer = styled.section`
 	height: 100vh;
 	position: relative;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	background-color: #00000050;
+	background-color: ${({ theme }) => theme.colors.secondBackground};
 `;
 
 const StyledHeader = styled.h1`
 	color: ${({ theme }) => theme.colors.primaryText};
 	position: relative;
-	width: 40%;
+	width: 50%;
 	text-align: center;
 	opacity: ${({ visible }) => (visible === 'show' ? 1 : 0)};
 	transform: opacity;
@@ -23,30 +23,82 @@ const StyledHeader = styled.h1`
 `;
 
 const StyledDivider = styled.div`
-	height: 90%;
+	height: 100vh;
 	width: 1px;
 	background-color: #eeeeee50;
 	position: relative;
 	z-index: 100;
 `;
 
+const StyledCard = styled.div`
+	height: ${({ main }) => (main ? '60%' : '50%')};
+	grid-column: ${({ main }) => (main ? 2 : 3)};
+	left: ${({ main }) => (main ? 'auto' : '-50%')};
+	z-index: ${({ main }) => (main ? 101 : 100)};
+	transform: height;
+	transition-duration: 1s;
+	background-color: ${({ theme }) => theme.colors.secondBackground};
+	border: 1px solid ${({ theme }) => theme.colors.background};
+	width: 100%;
+	position: relative;
+	justify-self: center;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	grid-row: 1;
+
+	.divider {
+		width: 100%;
+		height: 2px;
+		background-color: ${({ theme }) => theme.colors.background};
+	}
+	.upperHalf {
+		height: 50%;
+	}
+	.lowerHalf {
+		height: 50%;
+	}
+`;
+
+const StyledCardContainer = styled.div`
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	height: 100%;
+	width: 50%;
+	background-color: ${({ theme }) => theme.colors.background};
+`;
 const Product = ({ productsRef, setActive }) => {
-	const [visible, setVisible] = useState('hide');
+	const [visible, setVisible] = useState(false);
+	const [toggleCard, setToggleCard] = useState(true);
 	const { inView, setRefs } = useRefInView(productsRef);
 
 	useEffect(() => {
 		inView ? setVisible('show') : setVisible('hide');
 		inView ? setActive('SHOWCASE') : null;
 	}, [inView]);
+
+	const changeMainCard = () => {
+		setToggleCard((prevState) => !prevState);
+	};
 	return (
 		<StyledAboutContainer ref={setRefs}>
-			<StyledHeader visible={visible}>Something about me.</StyledHeader>
+			<StyledCardContainer>
+				<StyledCard main={toggleCard} onClick={changeMainCard}>
+					<div className='upperHalf'>kamcio</div>
+					<div className='divider'></div>
+					<div className='lowerHalf'></div>
+				</StyledCard>
+				<StyledCard main={!toggleCard} onClick={changeMainCard}>
+					<div className='upperHalf'>pancio</div>
+					<div className='divider'></div>
+					<div className='lowerHalf'></div>
+				</StyledCard>
+			</StyledCardContainer>
 			<StyledDivider></StyledDivider>
-			<StyledHeader visible={visible}>
-				Hi, my name is Kamil Knap and I'm an aspiring fullstack developer from
-				Poland. My goal is to eventually become a self-reliant freelancer. Here
-				you can find all of my work.
-			</StyledHeader>
+			<StyledHeader visible={visible}>sd</StyledHeader>
 		</StyledAboutContainer>
 	);
 };

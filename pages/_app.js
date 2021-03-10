@@ -12,7 +12,7 @@ body {
   font-size: 16px;
 
 	
-	@media (max-width: 970px) {
+	/* @media (max-width: 970px) {
 		font-size: 10px;
 	}
 	@media (max-width: 750px) {
@@ -20,7 +20,7 @@ body {
 	}
 	@media (max-width: 440px){
 		font-size: 6px;
-	}
+	} */
 }
 
 a {

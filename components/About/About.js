@@ -26,7 +26,7 @@ const StyledUpperText = styled.h1`
 	transform: ${({ visible }) =>
 		visible === 'show' ? 'translateX(0)' : 'translateX(40vw)'};
 	transition-duration: 1s;
-	font-size: 3rem;
+	font-size: 3vw;
 `;
 
 const StyledBottomText = styled.h1`
@@ -35,7 +35,7 @@ const StyledBottomText = styled.h1`
 	position: relative;
 	z-index: 102;
 	width: 70%;
-	font-size: 1.5rem;
+	font-size: 2vw;
 `;
 
 const StyledDivider = styled.div`
@@ -106,7 +106,7 @@ const StyledParagraph = styled.p`
 		}
 	}};
 	transition-duration: 1s;
-	line-height: 1.4;
+	line-height: 1.2;
 `;
 const About = ({ aboutRef, setActive }) => {
 	const [visible, setVisible] = useState('hide');

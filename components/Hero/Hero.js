@@ -9,8 +9,9 @@ const StyledHeroContainer = styled.section`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 10rem;
+	font-size: 8vw;
 	overflow: hidden;
+	line-height: 1.3;
 	&:after {
 		content: '';
 		position: absolute;
@@ -35,7 +36,6 @@ const StyledFirstName = styled.h1`
 	font-weight: bold;
 	word-spacing: 0.2em;
 	margin: 0;
-	height: 50vh;
 	padding: 10px;
 	color: ${({ theme }) => theme.colors.secondBackground};
 	display: flex;
@@ -73,13 +73,13 @@ const StyledArrow = styled.div`
 		bottom: 0;
 		content: '';
 		position: absolute;
-		border-left: 35px solid transparent;
-		border-right: 35px solid transparent;
+		border-left: 2vw solid transparent;
+		border-right: 2vw solid transparent;
 		z-index: 101;
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: ${({ theme }) => `35px solid ${theme.colors.background}`};
+		border-top: ${({ theme }) => `2vw solid ${theme.colors.background}`};
 		transform: z-index;
 		transition-duration: 0.2s;
 	}
@@ -88,13 +88,13 @@ const StyledArrow = styled.div`
 		width: 0;
 		height: 0;
 		position: absolute;
-		border-left: 20px solid transparent;
-		border-right: 20px solid transparent;
+		border-left: 1vw solid transparent;
+		border-right: 1vw solid transparent;
 		z-index: 102;
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		border-top: 20px solid #151617;
+		border-top: 1vw solid #151617;
 		bottom: 0;
 		transform: z-index;
 		transition-duration: 0.2s;
@@ -104,14 +104,14 @@ const StyledArrow = styled.div`
 		cursor: pointer;
 		&:after {
 			z-index: 101;
-			border-left: 35px solid transparent;
-			border-right: 35px solid transparent;
-			border-top: 35px solid #151617;
+			border-left: 2vw solid transparent;
+			border-right: 2vw solid transparent;
+			border-top: 2vw solid #151617;
 		}
 		&:before {
-			border-left: 20px solid transparent;
-			border-right: 20px solid transparent;
-			border-top: ${({ theme }) => `20px solid ${theme.colors.background}`};
+			border-left: 1vw solid transparent;
+			border-right: 1vw solid transparent;
+			border-top: ${({ theme }) => `1vw solid ${theme.colors.background}`};
 			z-index: 102;
 		}
 	}
@@ -135,7 +135,7 @@ const StyledMiddle = styled.h3`
 	font-weight: bold;
 	color: ${({ upper, theme }) =>
 		upper === true ? theme.colors.secondBackground : theme.colors.background};
-	font-size: 2rem;
+	font-size: 3vw;
 	margin: 0;
 `;
 
